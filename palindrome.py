@@ -1,51 +1,25 @@
-import string
-def is_palindrome(s):
-        s = s.lower()
-        s = s.translate(None, string.punctuation)
-        s = s.replace(" ", " ")
-        return s == s[:: -1]
-
-        # idx = 0
-        # while idx < len(greeting)  
-        # print(greetings[idx])
-        # idx +=1
+def is_it_palindrome(text):
+    text = remove_non_letters(text.lower())
 
 
+for idx in range(len(text) // 2):
+    print(text, text[idx], text[-(idx) + 1])
+    return text == text[::-1]
 
 
+def remove_non_letters(text):
+    all_letters = "abcdefghijklmnopqrstuvwxyz"
+    all_letters += all_letters.upper()
+
+    new_text = ""
+    for items in text:
+        if items in all_letters:
+            new_text += items
+    return new_text
 
 
-
-
-
-
-
-
-
-is_palindrome = input("Enter text: ")
-if is_palindrome(is_palindrome):
-    print("Yes, it is a palindrome")
+text = input("Enter a palindrome: ")
+if is_it_palindrome(text):
+    print("this is a palindrome.")
 else:
-    print("No, it is not a palindrome")
-
-def reverse(s): 
-    return s[::-1] 
-  
-def isPalindrome(s): 
-    # Calling reverse function 
-    rev = reverse(s) 
-  
-    # Checking if both string are equal or not 
-    if (s == rev): 
-        return True
-    return False
-  
-  
-# Driver code 
-s = "malayalam"
-ans = isPalindrome(s) 
-  
-if ans == 1: 
-    print("Yes") 
-else: 
-    print("No") 
+    print("is not a palindrome")
